@@ -13,7 +13,7 @@
 #include <Arduino.h>
 #include <WString.h>
 #include <avr/wdt.h>
-//#include "rs485.h"
+#include "rs485.h"
 #include "rotator_pins.h"
 #include "globals.h"
 
@@ -21,7 +21,7 @@
 #define BUFFER_SIZE   256   ///< Set the size of serial buffer
 #define BAUDRATE      19200 ///< Set the Baudrate of easycomm 3 protocol
 
-//rs485 rs485(RS485_DIR, RS485_TX_TIME);
+rs485 rs485(RS485_DIR, RS485_TX_TIME);
 
 /**************************************************************************/
 /*!
@@ -37,7 +37,7 @@ public:
     */
     /**************************************************************************/
     void easycomm_init() {
-       // rs485.begin(BAUDRATE);
+        rs485.begin(BAUDRATE);
 	    Serial.begin(9600);
     }
 
